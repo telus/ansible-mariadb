@@ -1,0 +1,29 @@
+---
+- name: Upload Config | monit | mariadb
+  template:
+    src: etc/monit/conf.d/mariadb
+    dest: /etc/monit/conf.d/mariadb
+  notify: Reload Service | monit
+  tags:
+    - monit
+
+- name: Trigger All Callbacks
+  meta: flush_handlers
+
+- name: Configure | mariadb | pidfile
+  lineinfile:
+    state: present
+    dest: /etc/mysql/my.cnf
+    regexp: '^.*pid-file'
+    line: 'pid-file = /var/run/mysqld/mysqld.pid'
+  notify: Reload Service | mariadb
+  tags:
+    - pidfile
+    - service
+
+- name: Confirm Monitoring | mariadb
+  monit:
+    state: present
+    name: mariadb
+  tags:
+    - monit

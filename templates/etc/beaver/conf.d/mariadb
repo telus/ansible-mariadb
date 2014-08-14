@@ -1,0 +1,7 @@
+[/data/log/mariadb/general.log]
+type: mariadb
+tags: service
+
+[/data/log/mariadb/slow.log]
+type: mariadb
+tags: service, slow

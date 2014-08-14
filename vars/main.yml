@@ -1,0 +1,4 @@
+---
+mariadb_server: no
+mariadb_client: no
+using_load_balancer: no

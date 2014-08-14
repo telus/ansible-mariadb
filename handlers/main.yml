@@ -1,0 +1,16 @@
+---
+- name: Update Package Cache
+  apt:
+    update_cache: yes
+
+- name: Reload Service | monit
+  command: monit reload
+  tags:
+    - monit
+
+- name: Reload Service | mariadb
+  monit:
+    state: restarted
+    name: mariadb
+  tags:
+    - monit

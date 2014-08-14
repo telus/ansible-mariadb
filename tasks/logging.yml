@@ -1,0 +1,73 @@
+---
+- name: Directory Exists | /data/log/mariadb
+  file:
+    state: directory
+    path: /data/log/mariadb
+    owner: mysql
+    group: wcadmin
+    mode: 0775
+  tags:
+    - directory-structure
+    - logging
+    - mariadb
+
+- name: Configure | mariadb | general log
+  lineinfile:
+    state: present
+    dest: /etc/mysql/my.cnf
+    regexp: '^.*general_log_file'
+    line: 'general_log_file = /data/log/mariadb/general.log'
+  notify: Reload Service | mariadb
+  tags:
+    - configuration
+    - precise-configuration
+    - logging
+    - mariadb
+
+- name: File is Writable | /data/log/mariadb/general.log
+  file:
+    state: touch
+    path: /data/log/mariadb/general.log
+    owner: mysql
+    group: wcadmin
+    mode: 0664
+  tags:
+    - permissions
+    - logging
+    - mariadb
+
+- name: Configure | mariadb | slow query log
+  lineinfile:
+    state: present
+    dest: /etc/mysql/my.cnf
+    regexp: '^.*slow_query_log_file'
+    line: 'slow_query_log_file = /data/log/mariadb/slow.log'
+  notify: Reload Service | mariadb
+  tags:
+    - configuration
+    - precise-configuration
+    - logging
+    - mariadb
+
+- name: File is Writable | /data/log/mariadb/slow.log
+  file:
+    state: touch
+    path: /data/log/mariadb/slow.log
+    owner: mysql
+    group: wcadmin
+    mode: 0664
+  tags:
+    - permissions
+    - logging
+    - mariadb
+
+- name: Upload Config | beaver | mariadb
+  template:
+    src: etc/beaver/conf.d/mariadb
+    dest: /etc/beaver/conf.d/mariadb
+  tags:
+    - configuration
+    - template-configuration
+    - logging
+    - using-beaver
+    - mariadb

@@ -1,0 +1,65 @@
+---
+- name: Create Database User
+  mysql_user:
+    state: present
+    name: "{{ database.username | default(project) }}"
+    password: "{{ database.password | mandatory }}"
+    priv: "mysql.*:ALL/{{ project}}.*:ALL"
+    host: "%"
+
+- name: Configure | mariadb | bind-address
+  lineinfile:
+    state: absent
+    dest: /etc/mysql/my.cnf
+    regexp: '^#* *bind-address'
+  notify: Reload Service | mariadb
+  tags:
+    - networking
+
+- name: Configure | mariadb | log_bin
+  lineinfile:
+    state: absent
+    dest: /etc/mysql/my.cnf
+    regexp: '^#* *log_bin'
+  notify: Reload Service | mariadb
+  tags:
+    - replication
+
+- name: Configure | mariadb | log_bin_index
+  lineinfile:
+    state: absent
+    dest: /etc/mysql/my.cnf
+    regexp: '^#* *log_bin_index'
+  notify: Reload Service | mariadb
+  tags:
+    - replication
+
+- name: Configure | mariadb | expire_logs_days
+  lineinfile:
+    state: absent
+    dest: /etc/mysql/my.cnf
+    regexp: '^#* *expire_logs_days'
+  notify: Reload Service | mariadb
+  tags:
+    - replication
+
+- name: Configure | mariadb | max_binlog_size
+  lineinfile:
+    state: absent
+    dest: /etc/mysql/my.cnf
+    regexp: '^#* *max_binlog_size'
+  notify: Reload Service | mariadb
+  tags:
+    - replication
+
+
+- name: Configure | mariadb | max_connect_errors
+  lineinfile:
+    state: present
+    dest: /etc/mysql/my.cnf
+    regexp: '^#* *max_connect_errors'
+    line: 'max_connect_errors = 18446744073709551615'
+  notify: Reload Service | mariadb
+  when: using_load_balancer
+  tags:
+    - workaround
