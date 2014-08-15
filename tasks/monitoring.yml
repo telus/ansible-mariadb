@@ -1,4 +1,16 @@
 ---
+- name: "Directory Exists | {{ mariadb_runtime_data_root }}"
+  file:
+    state: directory
+    path: "{{ mariadb_runtime_data_root }}"
+    owner: "{{ mariadb_user }}"
+    group: wcadmin
+    mode: 0775
+  tags:
+    - directory-structure
+    - runtime-data
+    - mariadb
+
 - name: Upload Config | monit | mariadb
   template:
     src: etc/monit/conf.d/mariadb
