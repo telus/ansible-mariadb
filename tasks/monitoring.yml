@@ -15,7 +15,7 @@
     state: present
     dest: /etc/mysql/my.cnf
     regexp: '^.*pid-file'
-    line: 'pid-file = /var/run/mysqld/mysqld.pid'
+    line: "pid-file = {{ mariadb_pidfile_path }}"
   notify: Reload Service | mariadb
   tags:
     - pidfile

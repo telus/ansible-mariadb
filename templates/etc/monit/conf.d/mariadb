@@ -1,4 +1,4 @@
-check process mariadb with pidfile /var/run/mysqld/mysqld.pid
+check process mariadb with pidfile {{ mariadb_pidfile_path }}
   start program "/usr/sbin/service mysql start"
   stop program "/usr/sbin/service mysql stop"
   if 5 restarts within 5 cycles then timeout

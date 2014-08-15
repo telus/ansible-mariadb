@@ -1,7 +1,7 @@
-[/data/log/mariadb/general.log]
+[{{ mariadb_general_log_path }}]
 type: mariadb
 tags: service
 
-[/data/log/mariadb/slow.log]
+[{{ mariadb_slow_query_log_path }}]
 type: mariadb
 tags: service, slow

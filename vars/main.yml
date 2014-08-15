@@ -1,4 +1,14 @@
 ---
-mariadb_server: no
 mariadb_client: no
+mariadb_user: mysql
+
 using_load_balancer: no
+mariadb_server: no
+
+mariadb_accepts_external_connections: yes
+mariadb_runtime_data_root: /var/run/mysqld
+mariadb_pidfile_path: "{{ mariadb_runtime_data_root }}/mariadb.pid"
+
+mariadb_log_root: /data/log/mariadb
+mariadb_general_log_path: "{{ mariadb_log_root }}/general.log"
+mariadb_slow_query_log_path: "{{ mariadb_log_root }}/slow-query.log"
