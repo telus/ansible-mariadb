@@ -1,6 +1,5 @@
 ---
-- { include: repositories.yml, tags: ['mariadb', 'package', 'repositories'] }
-- { include: install.yml, tags: ['mariadb', 'package', 'install'] }
-- { include: monitoring.yml, tags: ['mariadb', 'configure', 'monitoring'], when: mariadb_server }
-- { include: config.yml, tags: ['mariadb', 'package', 'configure'], when: mariadb_server }
-- { include: logging.yml, tags: ['mariadb', 'configure', 'logging'], when: mariadb_server }
+- include: install.yml
+- { include: monitoring.yml, when: mariadb_server }
+- { include: config.yml,     when: mariadb_server }
+- { include: logging.yml,    when: mariadb_server }
