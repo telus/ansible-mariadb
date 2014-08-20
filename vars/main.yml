@@ -6,6 +6,7 @@ using_load_balancer: no
 mariadb_server: no
 
 mariadb_accepts_external_connections: yes
+
 mariadb_runtime_root: "{{ runtime_root }}/mysqld"
 mariadb_pidfile_path: "{{ mariadb_runtime_root }}/mariadb.pid"
 
