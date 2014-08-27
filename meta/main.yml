@@ -1,0 +1,5 @@
+---
+dependencies:
+  - role: meta/repository
+    repository_key: '0xcbcb082a1bb943db'
+    repository_url: 'deb http://mariadb.mirror.iweb.com/repo/10.0/ubuntu trusty main'
