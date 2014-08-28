@@ -13,6 +13,14 @@
     - python-mysqldb
   when: mariadb_server
 
+- name: Service Stopped | mariadb
+  service:
+    name: mysql
+    state: stopped
+  when: mariadb_server
+  tags:
+    - disruptive
+
 - name: Install Packages | apt
   apt:
     state: latest
