@@ -1,12 +1,4 @@
 ---
-- name: Create Database User
-  mysql_user:
-    state: present
-    name: "{{ database.username | default(project) }}"
-    password: "{{ database.password | mandatory }}"
-    priv: "mysql.*:ALL/{{ project}}.*:ALL"
-    host: "%"
-
 - name: Configure | mariadb | bind-address
   lineinfile:
     state: present
