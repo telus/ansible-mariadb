@@ -20,6 +20,7 @@
     password: "{{ database.password | mandatory }}"
     priv: "mysql.*:ALL/{{ project}}.*:ALL"
     host: "%"
+  when: mariadb_server
 
 - name: Service Stopped | mariadb
   service:
