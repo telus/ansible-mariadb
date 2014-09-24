@@ -2,4 +2,4 @@
 - name: Remove MariaDB 10.0 repository
   apt_repository:
     state: absent
-    'repo: deb http://mariadb.mirror.iweb.com/repo/10.0/ubuntu trusty main'
+    repo: 'deb http://mariadb.mirror.iweb.com/repo/10.0/ubuntu trusty main'
