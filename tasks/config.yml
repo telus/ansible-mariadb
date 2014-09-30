@@ -5,47 +5,24 @@
     dest: /etc/mysql/my.cnf
     regexp: '^#* *bind-address'
     line: 'bind-address = 0.0.0.0'
+  when: mariadb_accepts_external_connections
   notify: Reload Service | mariadb
   tags:
     - networking
-  when: mariadb_accepts_external_connections
 
-- name: Configure | mariadb | log_bin
+- name: Configure | mariadb | replication
   lineinfile:
     state: absent
     dest: /etc/mysql/my.cnf
-    regexp: '^#* *log_bin'
+    regexp: "{{ item }}"
+  with_items:
+    - '^#* *log_bin'
+    - '^#* *log_bin_index'
+    - '^#* *expire_logs_days'
+    - '^#* *max_binlog_size'
   notify: Reload Service | mariadb
   tags:
     - replication
-
-- name: Configure | mariadb | log_bin_index
-  lineinfile:
-    state: absent
-    dest: /etc/mysql/my.cnf
-    regexp: '^#* *log_bin_index'
-  notify: Reload Service | mariadb
-  tags:
-    - replication
-
-- name: Configure | mariadb | expire_logs_days
-  lineinfile:
-    state: absent
-    dest: /etc/mysql/my.cnf
-    regexp: '^#* *expire_logs_days'
-  notify: Reload Service | mariadb
-  tags:
-    - replication
-
-- name: Configure | mariadb | max_binlog_size
-  lineinfile:
-    state: absent
-    dest: /etc/mysql/my.cnf
-    regexp: '^#* *max_binlog_size'
-  notify: Reload Service | mariadb
-  tags:
-    - replication
-
 
 - name: Configure | mariadb | max_connect_errors
   lineinfile:
@@ -54,7 +31,7 @@
     regexp: '^#* *max_connect_errors'
     line: 'max_connect_errors = 4294967295'
     insertafter: '\[mysqld\]'
-  notify: Reload Service | mariadb
   when: using_load_balancer
+  notify: Reload Service | mariadb
   tags:
     - workaround
