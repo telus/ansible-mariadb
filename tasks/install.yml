@@ -1,7 +1,7 @@
 ---
 - name: Preemptively Answer | MariaDB | Root Password
-  shell: "debconf-set-selections << 'mariadb-server-10.1 mariadb-server/root_password password {{ database.password | mandatory }}'"
-  shell: "debconf-set-selections << 'mariadb-server-10.1 mariadb-server/root_password_again password {{ database.password | mandatory }}'"
+  shell: "debconf-set-selections << 'mariadb-server-10.1 mariadb-server/root_password password {{ database_password | mandatory }}'"
+  shell: "debconf-set-selections << 'mariadb-server-10.1 mariadb-server/root_password_again password {{ database_password | mandatory }}'"
   when: mariadb_server
 
 - name: Install Packages | apt
@@ -16,8 +16,8 @@
 - name: Create Database User
   mysql_user:
     state: present
-    name: "{{ database.username | default(project) }}"
-    password: "{{ database.password | mandatory }}"
+    name: "{{ database_username | default(project) }}"
+    password: "{{ database_password | mandatory }}"
     priv: "mysql.*:ALL/{{ project}}.*:ALL"
     host: "%"
   when: mariadb_server
