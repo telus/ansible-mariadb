@@ -32,10 +32,3 @@
   tags:
     - pidfile
     - service
-
-- name: Confirm Monitoring | mariadb
-  monit:
-    state: present
-    name: mariadb
-  tags:
-    - monit
