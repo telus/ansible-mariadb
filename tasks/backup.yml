@@ -1,0 +1,7 @@
+---
+- name: Setup Automated Backups 
+  cron:
+    name:   "backup-image" 
+    hour:   "1"
+    minute: "13"
+    job:    "sudo mysqldump {{ database_name | default(project) }} | 7z a -si backup-`date +%Y%m%d`.7z"
