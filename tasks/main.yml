@@ -4,3 +4,4 @@
 - { include: monitoring.yml, when: mariadb_server }
 - { include: config.yml,     when: mariadb_server }
 - { include: logging.yml,    when: mariadb_server }
+- { include: backup.yml,     when: mariadb_server }

@@ -37,3 +37,14 @@
   with_items:
     - mariadb-client
   when: mariadb_client
+
+- name: Install Packages | apt
+  apt:
+    state: latest
+    pkg: "{{ item }}"
+  with_items:
+    - p7zip-full
+  when: mariadb_backup_enabled
+  tags:
+    - p7zip
+    - backup
