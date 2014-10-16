@@ -2,11 +2,11 @@
 - name: Reload Service | monit
   command: monit reload
   tags:
-    - monit
+    - using-monit
 
 - name: Reload Service | mariadb
   monit:
     state: restarted
     name: mariadb
   tags:
-    - monit
+    - using-monit

@@ -17,7 +17,7 @@
     dest: /etc/monit/conf.d/mariadb
   notify: Reload Service | monit
   tags:
-    - monit
+    - using-monit
 
 - name: Trigger All Callbacks
   meta: flush_handlers
