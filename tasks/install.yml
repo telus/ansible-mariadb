@@ -13,6 +13,11 @@
     - python-mysqldb
   when: mariadb_server
 
+- name: Create Database
+  mysql_db:
+    state: present
+    name: "{{ database_name | default(project) }}"
+
 - name: Create Database User
   mysql_user:
     state: present
