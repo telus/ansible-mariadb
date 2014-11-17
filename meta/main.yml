@@ -6,3 +6,5 @@ dependencies:
   - role: meta/monitor
     monitor_name: mariadb
     monitor_pidfile: "{{ mariadb_pidfile_path }}"
+    monitor_start_command: /usr/sbin/service mysql start
+    monitor_stop_command: /usr/sbin/service mysql stop
