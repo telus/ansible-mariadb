@@ -1,0 +1,37 @@
+---
+- name: Configure | mariadb | bind-address
+  lineinfile:
+    state: present
+    dest: /etc/mysql/my.cnf
+    regexp: '^#* *bind-address'
+    line: 'bind-address = 0.0.0.0'
+  when: mariadb_accepts_external_connections
+  notify: Reload Service | mariadb
+  tags:
+    - networking
+
+- name: Configure | mariadb | replication
+  lineinfile:
+    state: absent
+    dest: /etc/mysql/my.cnf
+    regexp: "{{ item }}"
+  with_items:
+    - '^#* *log_bin'
+    - '^#* *log_bin_index'
+    - '^#* *expire_logs_days'
+    - '^#* *max_binlog_size'
+  notify: Reload Service | mariadb
+  tags:
+    - replication
+
+- name: Configure | mariadb | max_connect_errors
+  lineinfile:
+    state: present
+    dest: /etc/mysql/my.cnf
+    regexp: '^#* *max_connect_errors'
+    line: 'max_connect_errors = 4294967295'
+    insertafter: '\[mysqld\]'
+  when: using_load_balancer
+  notify: Reload Service | mariadb
+  tags:
+    - workaround
