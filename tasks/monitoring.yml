@@ -11,17 +11,6 @@
     - runtime-data
     - mariadb
 
-- name: Upload Config | monit | mariadb
-  template:
-    src: etc/monit/conf.d/mariadb
-    dest: /etc/monit/conf.d/mariadb
-  notify: Reload Service | monit
-  tags:
-    - using-monit
-
-- name: Trigger All Callbacks
-  meta: flush_handlers
-
 - name: Configure | mariadb | pidfile
   lineinfile:
     state: present
