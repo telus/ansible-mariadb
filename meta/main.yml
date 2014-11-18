@@ -10,8 +10,8 @@ dependencies:
     monitor_stop_command: /usr/sbin/service mysql stop
 
   - role: meta/logging
-    - logging_name: mariadb 
-    - log_files:
+    logging_name: mariadb 
+    log_files:
       - tags: 'service'
         path: "{{ mariadb_general_log_path }}"
       - tags: 'service, slow'
