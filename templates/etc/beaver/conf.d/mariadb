@@ -1,7 +1,0 @@
-[{{ mariadb_general_log_path }}]
-type: mariadb
-tags: service
-
-[{{ mariadb_slow_query_log_path }}]
-type: mariadb
-tags: service, slow
