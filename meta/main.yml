@@ -5,14 +5,18 @@ dependencies:
     repository_url: 'deb http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.1/ubuntu trusty main'
   - role: meta/monitor
     monitor_name: mariadb
+    monitor_user: "{{ mariadb_user }}"
     monitor_pidfile: "{{ mariadb_pidfile_path }}"
     monitor_start_command: /usr/sbin/service mysql start
     monitor_stop_command: /usr/sbin/service mysql stop
+    when: mariadb_server
 
   - role: meta/logging
-    logging_name: mariadb 
+    logging_name: mariadb
+    logging_user: "{{ mariadb_user }}" 
     logging_files:
       - tags: 'service'
         path: "{{ mariadb_general_log_path }}"
       - tags: 'service, slow'
         path: "{{ mariadb_slow_query_log_path }}"
+    when: mariadb_server
