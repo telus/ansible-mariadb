@@ -1,4 +1,16 @@
 ---
+- name: "Directory Exists | {{ mariadb_log_root }}"
+  file:
+    state: directory
+    path: "{{ mariadb_log_root }}"
+    owner: "{{ mariadb_user }}"
+    group: wcadmin
+    mode: 0775
+  tags:
+    - directory-structure
+    - logging
+    - mariadb
+
 - name: Configure | mariadb | general log
   lineinfile:
     state: present

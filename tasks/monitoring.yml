@@ -1,4 +1,16 @@
 ---
+- name: "Directory Exists | {{ mariadb_runtime_root }}"
+  file:
+    state: directory
+    path: "{{ mariadb_runtime_root }}"
+    owner: "{{ mariadb_user }}"
+    group: wcadmin
+    mode: 0775
+  tags:
+    - directory-structure
+    - runtime-data
+    - mariadb
+
 - name: Configure | mariadb | pidfile
   lineinfile:
     state: present
