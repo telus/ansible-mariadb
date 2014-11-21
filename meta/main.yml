@@ -15,8 +15,11 @@ dependencies:
     logging_name: mariadb
     logging_user: "{{ mariadb_user }}" 
     logging_files:
-      - tags: 'service'
+      - tags:
+          - service
         path: "{{ mariadb_general_log_path }}"
-      - tags: 'service, slow'
+      - tags:
+          - service
+          - slow
         path: "{{ mariadb_slow_query_log_path }}"
     when: mariadb_server
