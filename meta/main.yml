@@ -19,3 +19,6 @@ dependencies:
           - service
           - slow
         path: "{{ mariadb_slow_query_log_path }}"
+
+  - role: package/logrotate
+    logrotate_name: mariadb
