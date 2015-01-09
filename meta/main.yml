@@ -10,7 +10,7 @@ dependencies:
     monitor_stop_command: /usr/sbin/service mysql stop
 
 # New logging method awaiting mariadb regex formatting
-#   - role: packages/fluentd
+#   - role: package/fluentd
 #     fluentd_sources:
 #       - path: "{{ mariadb_general_log_path }}"
 #         format: ''
