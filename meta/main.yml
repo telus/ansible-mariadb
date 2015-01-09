@@ -9,16 +9,15 @@ dependencies:
     monitor_start_command: /usr/sbin/service mysql start
     monitor_stop_command: /usr/sbin/service mysql stop
 
-  - role: meta/log-aggregator
-    logging_name: mariadb 
-    logging_files:
-      - tags:
-          - service
-        path: "{{ mariadb_general_log_path }}"
-      - tags:
-          - service
-          - slow
-        path: "{{ mariadb_slow_query_log_path }}"
+# New logging method awaiting mariadb regex formatting
+#   - role: packages/fluentd
+#     fluentd_sources:
+#       - path: "{{ mariadb_general_log_path }}"
+#         format: ''
+#         tag: mariadb.general
+#       - path: "{{ mariadb_slow_query_log_path }}"
+#         format: ''
+#         tag: mariadb.slow
 
   - role: package/logrotate
     logrotate_name: mariadb
