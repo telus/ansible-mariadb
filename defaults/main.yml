@@ -7,11 +7,11 @@ mariadb_server: no
 
 mariadb_accepts_external_connections: yes
 
-mariadb_runtime_root: "{{ runtime_root }}/mysqld"
+mariadb_runtime_root: "{{ runtime_root | default('/var/run') }}/mysqld"
 mariadb_pidfile_path: "{{ mariadb_runtime_root }}/mariadb.pid"
 mariadb_socket_path: "{{ mariadb_runtime_root }}/mariadb.sock"
 
-mariadb_log_root: "{{ log_root }}/mariadb"
+mariadb_log_root: "{{ log_root | default('/var/log') }}/mariadb"
 mariadb_general_log_path: "{{ mariadb_log_root }}/general.log"
 mariadb_slow_query_log_path: "{{ mariadb_log_root }}/slow-query.log"
 mariadb_backup_enabled: no
