@@ -4,10 +4,9 @@ dependencies:
     repository_key: '0xcbcb082a1bb943db'
     repository_url: 'deb http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.1/ubuntu trusty main'
   - role: meta/monitor
-    monitor_name: mariadb
-    monitor_pidfile: "{{ mariadb_pidfile_path }}"
-    monitor_start_command: /usr/sbin/service mysql start
-    monitor_stop_command: /usr/sbin/service mysql stop
+    monitor_name: mysql
+  - role: package/logrotate
+    logrotate_name: mysql
 
 # New logging method awaiting mariadb regex formatting
 #   - role: package/fluentd
@@ -19,5 +18,3 @@ dependencies:
 #         format: ''
 #         tag: mariadb.slow
 
-  - role: package/logrotate
-    logrotate_name: mariadb

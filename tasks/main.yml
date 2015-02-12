@@ -1,7 +1,6 @@
 ---
 - include: cleanup.yml
 - include: install.yml
-- { include: monitoring.yml, when: mariadb_server }
 - { include: configure.yml,  when: mariadb_server }
 - { include: logging.yml,    when: mariadb_server }
 - { include: backup.yml,     when: mariadb_server }
