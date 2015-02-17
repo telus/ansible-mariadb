@@ -1,7 +1,13 @@
 ---
-- name: Preemptively Answer | MariaDB | Root Password
-  shell: "debconf-set-selections << 'mariadb-server-10.1 mariadb-server/root_password password {{ database_password | mandatory }}'"
-  shell: "debconf-set-selections << 'mariadb-server-10.1 mariadb-server/root_password_again password {{ database_password | mandatory }}'"
+- name: Preemptively Answer | PHP APM | newrelic.appname
+  debconf:
+    name: mariadb-server-10.1
+    question: "{{ item }}"
+    vtype: password
+    value: "{{ database_password | mandatory }}"
+  with_items:
+    - mariadb-server/root_password
+    - mariadb-server/root_password_again
   when: mariadb_server
 
 - name: Install Packages | apt
