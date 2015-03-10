@@ -17,4 +17,3 @@ dependencies:
 #       - path: "{{ mariadb_slow_query_log_path }}"
 #         format: ''
 #         tag: mariadb.slow
-
