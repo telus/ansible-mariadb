@@ -1,6 +1,6 @@
 # ansible-mariadb
 
-[MariaDB](https://mariadb.org/) - MariaDB | An enhanced, drop-in replacement for MySQL.
+[MariaDB](https://mariadb.org/) - An enhanced, drop-in replacement for MySQL.
 
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
