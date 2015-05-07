@@ -17,8 +17,8 @@ dependencies:
 #         tag: mariadb.slow
 
 galaxy_info:
-  author: Aaron Pederson
-  description: MariaDB - An enhanced, drop-in replacement for MySQL.
+  author: "Aaron Pederson"
+  description: "MariaDB - An enhanced, drop-in replacement for MySQL."
   license: MIT
   platforms:
     - name: Ubuntu
