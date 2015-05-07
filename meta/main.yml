@@ -1,11 +1,9 @@
 ---
 dependencies:
-  - role: meta/repository
+  - role: telusdigital.apt-repository
     repository_key: '0xcbcb082a1bb943db'
     repository_url: 'deb http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.1/ubuntu trusty main'
-  - role: meta/monitor
-    monitor_name: mysql
-  - role: package/logrotate
+  - role: telusdigital.logrotate
     logrotate_name: mysql
 
 # New logging method awaiting mariadb regex formatting
@@ -17,3 +15,14 @@ dependencies:
 #       - path: "{{ mariadb_slow_query_log_path }}"
 #         format: ''
 #         tag: mariadb.slow
+
+galaxy_info:
+  author: Aaron Pederson
+  description: MariaDB - An enhanced, drop-in replacement for MySQL.
+  license: MIT
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+  categories:
+    - database:sql
