@@ -12,7 +12,7 @@
     - mariadb
     - backup
 
-- name: Setup Automated Backups 
+- name: Setup Automated Backups
   cron:
     name: mariadb-backup
     special_time: "{{ mariadb_backup_frequency }}"
