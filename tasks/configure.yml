@@ -23,11 +23,10 @@
     - service
 
 - name: Configure | mariadb | bind-address
-  lineinfile:
-    state: present
+  replace:
     dest: /etc/mysql/my.cnf
-    regexp: '^#* *bind-address'
-    line: 'bind-address = 0.0.0.0'
+    regexp: '^#* *bind-address.*'
+    replace: 'bind-address = 0.0.0.0'
   when: mariadb_accepts_external_connections
   notify: Reload Service | mariadb
   tags:
