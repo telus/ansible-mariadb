@@ -4,7 +4,7 @@
     state: directory
     path: "{{ mariadb_backup_path }}"
     owner: root
-    group: wcadmin
+    group: staff
     mode: 0775
   when: mariadb_backup_enabled
   tags:
@@ -12,11 +12,11 @@
     - mariadb
     - backup
 
-- name: Setup Automated Backups 
+- name: Setup Automated Backups
   cron:
     name: mariadb-backup
     special_time: "{{ mariadb_backup_frequency }}"
-    job: "sudo mysqldump {{ database_name | default(project) }} | 7z a -si {{ mariadb_backup_path }}/`date +%Y%m%d%H`.7z"
+    job: "mysqldump {{ database_name | default(project) }} | 7z a -si {{ mariadb_backup_path }}/`date +\\%Y\\%m\\%d\\%H`.7z"
   when: mariadb_backup_enabled
   tags:
     - mariadb
