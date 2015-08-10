@@ -1,5 +1,5 @@
 ---
-mariadb_client: no
+mariadb_client: "{% if 'mariadb_backup_enabled' %}yes{% else %}no{% endif %}"
 mariadb_user: mysql
 
 using_load_balancer: no
