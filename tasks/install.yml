@@ -40,7 +40,7 @@
     pkg: "{{ item }}"
   with_items:
     - mariadb-client
-  when: mariadb_client
+  when: mariadb_client or mariadb_backup_enabled
 
 - name: Install Packages | apt
   apt:
