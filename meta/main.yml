@@ -5,17 +5,14 @@ dependencies:
     repository_url: 'deb http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.1/ubuntu trusty main'
   - role: telusdigital.logrotate
     logrotate_name: mysql
-
-# New logging method awaiting mariadb regex formatting
-#   - role: package/fluentd
-#     fluentd_sources:
-#       - path: "{{ mariadb_general_log_path }}"
-#         format: ''
-#         tag: mariadb.general
-#       - path: "{{ mariadb_slow_query_log_path }}"
-#         format: ''
-#         tag: mariadb.slow
-
+  - role: package/fluentd
+    fluentd_sources:
+      - path: "{{ mariadb_general_log_path }}"
+        format: '.*'
+        tag: mariadb.general
+      - path: "{{ mariadb_slow_query_log_path }}"
+        format: '.*'
+        tag: mariadb.slow
 galaxy_info:
   author: "Aaron Pederson"
   description: "MariaDB - An enhanced, drop-in replacement for MySQL."
