@@ -6,15 +6,11 @@
     owner: "{{ mariadb_user }}"
     group: staff
     mode: 0775
+  notify: Stop Service | mariadb
   tags:
     - directory-structure
     - runtime-data
     - mariadb
-
-- name: Stop service | mariadb
-  service:
-    name: mysql
-    state: stopped
 
 - name: Configure | mariadb | pidfile
   lineinfile:
@@ -22,7 +18,7 @@
     dest: /etc/mysql/my.cnf
     regexp: '^.*pid-file'
     line: "pid-file = {{ mariadb_pidfile_path }}"
-  notify: Reload Service | mariadb
+  notify: Start Service | mariadb
   tags:
     - pidfile
     - service
@@ -62,8 +58,3 @@
   notify: Reload Service | mariadb
   tags:
     - workaround
-
-- name: Start service | mariadb
-  service:
-    name: mysql
-    state: started
