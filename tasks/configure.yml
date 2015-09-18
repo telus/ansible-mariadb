@@ -11,6 +11,11 @@
     - runtime-data
     - mariadb
 
+- name: Stop service | mariadb
+  service:
+    name: mysql
+    state: stopped
+
 - name: Configure | mariadb | pidfile
   lineinfile:
     state: present
@@ -21,6 +26,11 @@
   tags:
     - pidfile
     - service
+
+- name: Start service | mariadb
+  service:
+    name: mysql
+    state: started
 
 - name: Configure | mariadb | bind-address
   replace:
