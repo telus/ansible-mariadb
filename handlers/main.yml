@@ -5,3 +5,13 @@
     name: mysql
   tags:
     - disruptive
+
+- name: Stop Service | mariadb
+  service:
+    name: mysql
+    state: stopped
+
+- name: Start service | mariadb
+  service:
+    name: mysql
+    state: started

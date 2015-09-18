@@ -6,6 +6,7 @@
     owner: "{{ mariadb_user }}"
     group: staff
     mode: 0775
+  notify: Stop Service | mariadb
   tags:
     - directory-structure
     - runtime-data
@@ -17,7 +18,7 @@
     dest: /etc/mysql/my.cnf
     regexp: '^.*pid-file'
     line: "pid-file = {{ mariadb_pidfile_path }}"
-  notify: Reload Service | mariadb
+  notify: Start Service | mariadb
   tags:
     - pidfile
     - service
