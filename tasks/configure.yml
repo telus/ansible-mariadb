@@ -27,11 +27,6 @@
     - pidfile
     - service
 
-- name: Start service | mariadb
-  service:
-    name: mysql
-    state: started
-
 - name: Configure | mariadb | bind-address
   replace:
     dest: /etc/mysql/my.cnf
@@ -67,3 +62,8 @@
   notify: Reload Service | mariadb
   tags:
     - workaround
+
+- name: Start service | mariadb
+  service:
+    name: mysql
+    state: started
