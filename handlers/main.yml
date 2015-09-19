@@ -11,7 +11,7 @@
     name: mysql
     state: stopped
 
-- name: Start service | mariadb
+- name: Start Service | mariadb
   service:
     name: mysql
     state: started
