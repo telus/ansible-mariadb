@@ -18,7 +18,7 @@
     dest: /etc/mysql/my.cnf
     regexp: '^.*pid-file'
     line: "pid-file = {{ mariadb_pidfile_path }}"
-  notify: Start Service | mariadb
+  notify: Reload Service | mariadb
   tags:
     - pidfile
     - service
@@ -55,6 +55,8 @@
     line: 'max_connect_errors = 4294967295'
     insertafter: '\[mysqld\]'
   when: using_load_balancer
-  notify: Reload Service | mariadb
+  notify:
+   - Reload Service | mariadb
+   - Start Service | mariadb
   tags:
     - workaround
