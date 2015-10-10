@@ -9,6 +9,7 @@ Tunables
 
 * `mariadb_client:` (boolean) - MariaDB client?
 * `mariadb_user:` (string) - Name of user.
+* `mariadb_group:` (string) - Name of group.
 * `using_load_balancer:` (boolean) - Anything in front of MariaDB doing health checks?
 * `mariadb_server:` (boolean) - MariaDB server?
 * `mariadb_accepts_external_connections:` (boolean) - Accept external connections?
