@@ -5,8 +5,8 @@ python: "2.7"
 env:
   - SITE=test-install.yml
 
-before_install:  - sudo apt-get update -qq
-
+before_install:  
+  - sudo apt-get update -qq
 
 install:
   # Install Ansible.
