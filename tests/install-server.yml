@@ -8,3 +8,4 @@
   - role: telusdigital.logrotate
     logrotate_name: mysql
   - role: ansible-mariadb
+    mariadb_server: yes
