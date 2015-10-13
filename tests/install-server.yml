@@ -4,7 +4,7 @@
   roles:
   - role: telusdigital.apt-repository
     repository_key: '0xcbcb082a1bb943db'
-    repository_url: "deb http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.1/ubuntu {{ ansible_distribution_release }} main"
+    repository_url: "deb http://ftp.igh.cnrs.fr/pub/mariadb/repo/10.1/ubuntu {{ ansible_distribution_release }} main"
   - role: telusdigital.logrotate
     logrotate_name: mysql
   - role: ansible-mariadb
