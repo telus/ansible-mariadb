@@ -9,7 +9,7 @@ env:
     - ROLE=install-client.yml
 
 before_install:  
-  - apt-get update -qq
+  # - apt-get update -qq
 
 install:
   # Install Ansible.
