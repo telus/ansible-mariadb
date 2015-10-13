@@ -6,3 +6,4 @@ project=travis
 environment_tier=travis
 system_role=travis
 domain=travis
+database_password=travis
