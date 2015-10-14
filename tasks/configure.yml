@@ -6,7 +6,7 @@
     owner: "{{ mariadb_user }}"
     group: staff
     mode: 0775
-  notify: Stop Service | mariadb
+  notify: service | mariadb | stopped
   tags:
     - directory-structure
     - runtime-data
@@ -18,7 +18,7 @@
     dest: /etc/mysql/my.cnf
     regexp: '^.*pid-file'
     line: "pid-file = {{ mariadb_pidfile_path }}"
-  notify: Reload Service | mariadb
+  notify: service | mariadb | reloaded
   tags:
     - pidfile
     - service
@@ -29,7 +29,7 @@
     regexp: '^#* *bind-address.*'
     replace: 'bind-address = 0.0.0.0'
   when: mariadb_accepts_external_connections
-  notify: Reload Service | mariadb
+  notify: service | mariadb | reloaded
   tags:
     - networking
 
@@ -43,7 +43,7 @@
     - '^#* *log_bin_index'
     - '^#* *expire_logs_days'
     - '^#* *max_binlog_size'
-  notify: Reload Service | mariadb
+  notify: service | mariadb | reloaded
   tags:
     - replication
 
@@ -55,8 +55,6 @@
     line: 'max_connect_errors = 4294967295'
     insertafter: '\[mysqld\]'
   when: using_load_balancer
-  notify:
-   - Reload Service | mariadb
-   - Start Service | mariadb
+  notify: service | mariadb | restarted
   tags:
     - workaround
