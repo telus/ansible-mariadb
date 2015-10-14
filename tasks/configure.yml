@@ -6,6 +6,7 @@
     owner: "{{ mariadb_user }}"
     group: staff
     mode: 0775
+  notify: service | mariadb | stopped
   tags:
     - directory-structure
     - runtime-data
@@ -54,6 +55,6 @@
     line: 'max_connect_errors = 4294967295'
     insertafter: '\[mysqld\]'
   when: using_load_balancer
-  notify: service | mariadb | reloaded
+  notify: service | mariadb | restarted
   tags:
     - workaround
