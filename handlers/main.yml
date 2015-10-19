@@ -1,20 +1,17 @@
 ---
-- name: service | mariadb | started
+- name: Reload Service | mariadb
   service:
+    state: reloaded
     name: mysql
-    state: started
+  tags:
+    - disruptive
 
-- name: service | mariadb | stopped
+- name: Stop Service | mariadb
   service:
     name: mysql
     state: stopped
 
-- name: service | mariadb | restarted
+- name: Start Service | mariadb
   service:
-    state: restarted
     name: mysql
-
-- name: service | mariadb | reloaded
-  service:
-    state: reloaded
-    name: mysql
+    state: started
