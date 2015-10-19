@@ -15,6 +15,7 @@
     state: latest
     pkg: "{{ item }}"
   with_items:
+    - mariadb-server-10.1
     - mariadb-server
     - python-mysqldb
   when: mariadb_server
@@ -39,6 +40,7 @@
     state: latest
     pkg: "{{ item }}"
   with_items:
+    - mariadb-client-5.5
     - mariadb-client
   when: mariadb_client
 
