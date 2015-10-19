@@ -26,4 +26,4 @@ script:
   - "ansible-playbook -i tests/inventory tests/$PLAYBOOK --connection=local --sudo"
 
   # check idempotence
-  - "ansible-playbook -i tests/inventory tests/$PLAYBOOK --connection=local --sudo
+  - "ansible-playbook -i tests/inventory tests/$PLAYBOOK --connection=local --sudo"
