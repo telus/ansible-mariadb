@@ -3,7 +3,7 @@
 [MariaDB](https://mariadb.org/) - An enhanced, drop-in replacement for MySQL.
 
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
-
+[![Build Status](https://travis-ci.org/telusdigital/ansible-mariadb.svg)](https://travis-ci.org/telusdigital/ansible-mariadb)
 Tunables
 --------
 
