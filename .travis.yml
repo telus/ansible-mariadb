@@ -1,13 +1,19 @@
 ---
 language: python
 python: "2.7"
-sudo: false
 
 env:
   - PLAYBOOK=test.yml
 
 before_install:
-  # - sudo apt-get update -qq
+  - sudo apt-get update -qq
+
+  # remove MySQL from travis
+  - sudo apt-get remove --purge 'mysql*'
+  - sudo apt-get autoremove
+  - sudo apt-get autoclean
+  - sudo rm -rf /var/lib/mysql
+  - sudo truncate -s 0 /var/log/mysql/error.log
 
 install:
   # install ansible
