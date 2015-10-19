@@ -1,5 +1,6 @@
 ---
 mariadb_user: mysql
+mariadb_group: mysql
 
 using_load_balancer: no
 mariadb_server: no

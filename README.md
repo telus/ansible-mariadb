@@ -3,12 +3,14 @@
 [MariaDB](https://mariadb.org/) - An enhanced, drop-in replacement for MySQL.
 
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
+[![Build Status](https://travis-ci.org/telusdigital/ansible-mariadb.svg)](https://travis-ci.org/telusdigital/ansible-mariadb)
 
 Tunables
 --------
 
 * `mariadb_client:` (boolean) - MariaDB client?
 * `mariadb_user:` (string) - Name of user.
+* `mariadb_group:` (string) - Name of group.
 * `using_load_balancer:` (boolean) - Anything in front of MariaDB doing health checks?
 * `mariadb_server:` (boolean) - MariaDB server?
 * `mariadb_accepts_external_connections:` (boolean) - Accept external connections?
