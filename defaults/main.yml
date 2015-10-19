@@ -2,9 +2,10 @@
 mariadb_user: mysql
 mariadb_group: mysql
 
-using_load_balancer: no
 mariadb_server: no
+mariadb_client: "{{ mariadb_backup_enabled }}"
 
+using_load_balancer: no
 mariadb_accepts_external_connections: yes
 
 mariadb_runtime_root: "{{ runtime_root | default('/var/run') }}/mysql"
@@ -17,4 +18,3 @@ mariadb_slow_query_log_path: "{{ mariadb_log_root }}/slow-query.log"
 mariadb_backup_enabled: no
 mariadb_backup_path: /data/backup/mariadb
 mariadb_backup_frequency: daily
-mariadb_client: "{{ mariadb_backup_enabled }}"
