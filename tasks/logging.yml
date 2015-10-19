@@ -4,7 +4,7 @@
     state: directory
     path: "{{ mariadb_log_root }}"
     owner: "{{ mariadb_user }}"
-    group: wcdevelop
+    group: "{{ mariadb_group }}"
     mode: 0775
   tags:
     - directory-structure
@@ -29,7 +29,7 @@
     state: touch
     path: "{{ mariadb_general_log_path }}"
     owner: "{{ mariadb_user }}"
-    group: wcdevelop
+    group: "{{ mariadb_group }}"
     mode: 0664
   tags:
     - permissions
@@ -54,7 +54,7 @@
     state: touch
     path: "{{ mariadb_slow_query_log_path }}"
     owner: "{{ mariadb_user }}"
-    group: wcdevelop
+    group: "{{ mariadb_group }}"
     mode: 0664
   tags:
     - permissions

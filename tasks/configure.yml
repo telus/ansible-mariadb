@@ -56,7 +56,7 @@
     insertafter: '\[mysqld\]'
   when: using_load_balancer
   notify:
-   - Reload Service | mariadb
-   - Start Service | mariadb
+    - Reload Service | mariadb
+    - Start Service | mariadb
   tags:
     - workaround
