@@ -4,3 +4,4 @@ localhost
 [local:vars]
 project=travis
 environment_tier=travis
+database_password=travis

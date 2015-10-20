@@ -17,7 +17,7 @@
     dest: /etc/mysql/my.cnf
     regexp: '^.*general_log_file'
     line: "general_log_file = {{ mariadb_general_log_path }}"
-  notify: Reload Service | mariadb
+  notify: service | mariadb | reloaded
   tags:
     - configuration
     - precise-configuration
@@ -42,7 +42,7 @@
     dest: /etc/mysql/my.cnf
     regexp: '^.*slow_query_log_file'
     line: "slow_query_log_file = {{ mariadb_slow_query_log_path }}"
-  notify: Reload Service | mariadb
+  notify: service | mariadb | reloaded
   tags:
     - configuration
     - precise-configuration
