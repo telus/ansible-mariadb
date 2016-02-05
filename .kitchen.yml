@@ -1,0 +1,15 @@
+---
+driver:
+  name: docker
+  privileged: true
+
+provisioner:
+  name: ansible_playbook
+  hosts: test-kitchen
+  requirements_path: dependencies.yml
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+  - name: default

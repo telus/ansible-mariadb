@@ -1,0 +1,10 @@
+---
+# host to test against
+- hosts: test-kitchen
+  remote_user: root
+
+  roles:
+    # name of role to test
+    - role: ansible-mariadb
+    mariadb_backup_enabled: yes
+    mariadb_server: yes
