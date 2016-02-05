@@ -1,0 +1,41 @@
+I, [2016-02-05T14:03:01.335438 #3885]  INFO -- Kitchen: -----> Starting Kitchen (v1.5.0)
+E, [2016-02-05T14:03:01.361451 #3885] ERROR -- Kitchen: ------Exception-------
+E, [2016-02-05T14:03:01.361522 #3885] ERROR -- Kitchen: Class: Kitchen::UserError
+E, [2016-02-05T14:03:01.361536 #3885] ERROR -- Kitchen: Message: You must first install the Docker CLI tool http://www.docker.io/gettingstarted/
+E, [2016-02-05T14:03:01.361547 #3885] ERROR -- Kitchen: ---Nested Exception---
+E, [2016-02-05T14:03:01.361556 #3885] ERROR -- Kitchen: Class: Kitchen::ShellOut::ShellCommandFailed
+E, [2016-02-05T14:03:01.361565 #3885] ERROR -- Kitchen: Message: Expected process to exit with [0], but received '1'
+---- Begin output of sudo -E docker >> /dev/null 2>&1 ----
+STDOUT: 
+STDERR: 
+---- End output of sudo -E docker >> /dev/null 2>&1 ----
+Ran sudo -E docker >> /dev/null 2>&1 returned 1
+E, [2016-02-05T14:03:01.361574 #3885] ERROR -- Kitchen: ------Backtrace-------
+E, [2016-02-05T14:03:01.361582 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/kitchen-docker-2.3.0/lib/kitchen/driver/docker.rb:76:in `rescue in verify_dependencies'
+E, [2016-02-05T14:03:01.361591 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/kitchen-docker-2.3.0/lib/kitchen/driver/docker.rb:74:in `verify_dependencies'
+E, [2016-02-05T14:03:01.361602 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/driver.rb:45:in `for_plugin'
+E, [2016-02-05T14:03:01.361611 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/config.rb:230:in `new_driver'
+E, [2016-02-05T14:03:01.361620 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/config.rb:243:in `new_instance'
+E, [2016-02-05T14:03:01.361629 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/config.rb:139:in `block in build_instances'
+E, [2016-02-05T14:03:01.361638 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/config.rb:138:in `map'
+E, [2016-02-05T14:03:01.361647 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/config.rb:138:in `with_index'
+E, [2016-02-05T14:03:01.361656 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/config.rb:138:in `build_instances'
+E, [2016-02-05T14:03:01.361664 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/config.rb:114:in `instances'
+E, [2016-02-05T14:03:01.361673 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/command.rb:115:in `filtered_instances'
+E, [2016-02-05T14:03:01.361682 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/command.rb:145:in `parse_subcommand'
+E, [2016-02-05T14:03:01.361691 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/command/test.rb:43:in `block in call'
+E, [2016-02-05T14:03:01.361702 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/2.2.0/benchmark.rb:288:in `measure'
+E, [2016-02-05T14:03:01.361734 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/command/test.rb:41:in `call'
+E, [2016-02-05T14:03:01.361742 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/cli.rb:56:in `perform'
+E, [2016-02-05T14:03:01.361751 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/cli.rb:227:in `test'
+E, [2016-02-05T14:03:01.361760 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
+E, [2016-02-05T14:03:01.361768 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
+E, [2016-02-05T14:03:01.361777 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/cli.rb:321:in `invoke_task'
+E, [2016-02-05T14:03:01.361786 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
+E, [2016-02-05T14:03:01.361802 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
+E, [2016-02-05T14:03:01.361818 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/bin/kitchen:13:in `block in <top (required)>'
+E, [2016-02-05T14:03:01.361832 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/lib/kitchen/errors.rb:154:in `with_friendly_errors'
+E, [2016-02-05T14:03:01.361841 #3885] ERROR -- Kitchen: /usr/local/lib/ruby/gems/2.2.0/gems/test-kitchen-1.5.0/bin/kitchen:13:in `<top (required)>'
+E, [2016-02-05T14:03:01.361852 #3885] ERROR -- Kitchen: /usr/local/bin/kitchen:23:in `load'
+E, [2016-02-05T14:03:01.361860 #3885] ERROR -- Kitchen: /usr/local/bin/kitchen:23:in `<main>'
+E, [2016-02-05T14:03:01.361869 #3885] ERROR -- Kitchen: ----------------------

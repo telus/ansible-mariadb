@@ -8,9 +8,9 @@ mariadb_client: "{{ mariadb_backup_enabled }}"
 using_load_balancer: no
 mariadb_accepts_external_connections: yes
 
-mariadb_runtime_root: "{{ runtime_root | default('/var/run') }}/mysql"
-mariadb_pidfile_path: "{{ mariadb_runtime_root }}/mysql.pid"
-# mariadb_socket_path: "{{ mariadb_runtime_root }}/mysql.sock"
+mariadb_runtime_root: "{{ runtime_root | default('/var/run') }}/mysqld"
+mariadb_pidfile_path: "{{ mariadb_runtime_root }}/mysqld.pid"
+mariadb_socket_path: "{{ mariadb_runtime_root }}/mysqld.sock"
 
 mariadb_log_root: "{{ log_root | default('/var/log') }}/mysql"
 mariadb_general_log_path: "{{ mariadb_log_root }}/general.log"
