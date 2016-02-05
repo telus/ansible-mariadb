@@ -10,3 +10,4 @@
       project_name: travis
       mariadb_backup_enabled: yes
       mariadb_server: yes
+      database_password: testing-bad-password
