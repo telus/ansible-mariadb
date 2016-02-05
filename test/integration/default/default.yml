@@ -8,3 +8,5 @@
     - role: ansible-mariadb
     mariadb_backup_enabled: yes
     mariadb_server: yes
+    enviroment_tier: development
+    project_name: travis
