@@ -53,7 +53,7 @@
     dest: /etc/mysql/my.cnf
     regexp: '^#* *max_connect_errors'
     line: 'max_connect_errors = 4294967295'
-    insertafter: '\[mysqld\]'
+    insertafter: '\[mysql\]'
   when: using_load_balancer
   notify: service | mariadb | restarted
   tags:
