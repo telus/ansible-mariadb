@@ -11,3 +11,4 @@
       mariadb_backup_enabled: yes
       mariadb_server: yes
       database_password: testing-bad-password
+      using_load_balancer: yes
