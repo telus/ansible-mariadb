@@ -47,14 +47,14 @@
   tags:
     - replication
 
-- name: Configure | mariadb | max_connect_errors
-  lineinfile:
-    state: present
-    dest: /etc/mysql/my.cnf
-    regexp: '^#* *max_connect_errors'
-    line: 'max_connect_errors = 4294967295'
-    insertafter: '\[mysqld\]'
-  when: using_load_balancer
-  notify: service | mariadb | restarted
-  tags:
-    - workaround
+# - name: Configure | mariadb | max_connect_errors
+#   lineinfile:
+#     state: present
+#     dest: /etc/mysql/my.cnf
+#     regexp: '^#* *max_connect_errors'
+#     line: 'max_connect_errors = 4294967295'
+#     insertafter: '\[mysqld\]'
+#   when: using_load_balancer
+#   notify: service | mariadb | restarted
+#   tags:
+#     - workaround

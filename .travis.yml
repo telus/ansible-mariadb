@@ -1,36 +1,14 @@
 ---
-language: python
-python: "2.7"
+sudo: required
 
-env:
-  - PLAYBOOK=test.yml
-
-before_install:
-  - sudo apt-get update -qq
-
-  # remove MySQL from travis
-  - sudo apt-get remove --purge 'mysql*'
-  - sudo apt-get autoremove
-  - sudo apt-get autoclean
-  - sudo rm -rf /var/lib/mysql
-  - sudo truncate -s 0 /var/log/mysql/error.log
+services: docker
 
 install:
-  # install ansible
-  - pip install ansible
-
-  # configure ansible
-  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
-
-  # install dependencies from meta/main.yml
-  - "read test < <(cat meta/main.yml  | grep 'role:' | awk '{print $3}' | tr '\n' ' '); ansible-galaxy install $test"
+  - bundle install
 
 script:
-  # check syntax
-  - "ansible-playbook -i tests/inventory tests/$PLAYBOOK --syntax-check"
+  - bundle exec kitchen test
 
-  # initial run
-  - "ansible-playbook -i tests/inventory tests/$PLAYBOOK --connection=local --sudo"
-
-  # check idempotence
-  - "ansible-playbook -i tests/inventory tests/$PLAYBOOK --connection=local --sudo"
+notifications:
+  slack:
+    secure: BUwpTRvLZiEtDzA+sWIzbi44mjntZ4SYJ/0JAdDEvnOcf+gcJ70fzvRrfdtzOQoKt3khPrxzyi2Dk1ds55sAJVKgLRZNwUVuuKKttuAehCAnNWSyJphCCjxR1+nQGfZFTS5rMebF2dhbvSuCDU/QrBVqhcABt1Q/jSGrD5XtyuvJ2/Uy2YvgJJRbyCdRJ5dhN2LDbkic3IFFT+QAb5H8DlGwB3T5JpR1AcBLPJQfelGqk3L0Y9DRKJKV26fsUfGHGyCYRTK7P7W6vBAN5qgNwqcxgV6FarV8TLFbA2N3439zDhZSZO9i4rio/46Xb3t5OAqJSAFQRpdt/kj1IccdNXiv6AmxlDBI3Kd0cPLMhWpvrFuHPurixMG+A7aSqvEqVLVngrM8jnnGJ5JvPR92VlBqEXiRUnc/Xgsy9i3hqp9hC4kXam7ZehV0b4L7sWy4FhT06f/fHETNZi64cqIjw5BibMij1DaIntxQAK0gyFvqHWjKVyTEBcDFK49YQeKRq3nYmGfc9rNFIJBsSr+y9mdYksrudACXsYhlVv09Xf1bhBfRff0jZVWEP6uO3FMV/Smxxe5ydNG3ze9rpjrrh0AtlQnDJHMEumptYaew5aWfMMNasF3VHxzCrpicb0yLBzIb5R9LyMq/IWiyx39jFUGWMqbbJOBjPAiGVWjXgfk=
