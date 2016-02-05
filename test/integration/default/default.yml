@@ -7,7 +7,7 @@
     # name of role to test
     - role: ansible-mariadb
       enviroment_tier: development
-      project_name: travis
+      project: travis
       mariadb_backup_enabled: yes
       mariadb_server: yes
       database_password: testing-bad-password
