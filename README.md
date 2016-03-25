@@ -4,7 +4,7 @@
 
 [![Licence](https://img.shields.io/badge/Licence-MIT-blue.svg)](https://tldrlegal.com/license/mit-license)
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
-[![Build Status](https://travis-ci.org/telusdigital/ansible-mariadb.svg?branch=master)](https://travis-ci.org/telusdigital/ansible-mariadb)
+[![Build Status](https://travis-ci.org/telusdigital/ansible-mariadb.svg)](https://travis-ci.org/telusdigital/ansible-mariadb)
 Tunables
 --------
 
