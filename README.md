@@ -2,6 +2,7 @@
 
 [MariaDB](https://mariadb.org/) - An enhanced, drop-in replacement for MySQL.
 
+[![Licence](https://img.shields.io/badge/Licence-MIT-blue.svg)](https://tldrlegal.com/license/mit-license)
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 [![Build Status](https://travis-ci.org/telusdigital/ansible-mariadb.svg)](https://travis-ci.org/telusdigital/ansible-mariadb)
 Tunables
@@ -33,12 +34,10 @@ Example Playbook
       roles:
          - role: telusdigital.mariadb
 
-License
--------
-[MIT](https://tldrlegal.com/license/mit-license)
 
 Contributors
 ------------
 * [Chris Olstrom](https://colstrom.github.io/) | [e-mail](mailto:chris@olstrom.com) | [Twitter](https://twitter.com/ChrisOlstrom)
 * [Aaron Pederson](https://aaronpederson.github.io) | [e-mail](mailto:aaronpederson@gmail.com) | [Twitter](https://twitter.com/GunFuSamurai) 
+* Steven Harradine 
 * [Justin Scott](https://jvscott.net) | [e-mail](mailto:jvscott@gmail.com) | [Twitter](https://twitter.com/AKindlyOrc)
