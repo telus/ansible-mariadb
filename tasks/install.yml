@@ -19,6 +19,15 @@
     - python-mysqldb
   when: mariadb_server
 
+- name: Install Packages | apt
+  apt:
+    state: latest
+    pkg: "{{ item }}"
+  with_items: mariadb_modules
+  tags:
+    - software-installation
+    - using-apt
+
 - name: Create Database
   mysql_db:
     state: present

@@ -23,6 +23,7 @@ Tunables
 * `mariadb_backup_enabled:` (boolean) - Enable backup?
 * `mariadb_backup_path:` (string) - Path mariadb backs up to.
 * `mariadb_backup_frequency:` (string) - Frequency with which it backs up.
+* `mariadb_modules:` (list) - Additional MariaDB modules to install.
 
 Dependencies
 ------------
