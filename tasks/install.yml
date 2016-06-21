@@ -23,7 +23,7 @@
   apt:
     state: latest
     pkg: "{{ item }}"
-  with_items: mariadb_modules
+  with_items: "{{ mariadb_modules }}"
   tags:
     - software-installation
     - using-apt
