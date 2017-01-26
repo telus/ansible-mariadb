@@ -8,7 +8,7 @@ dependencies:
 galaxy_info:
   author: 'Aaron Pederson'
   description: 'MariaDB - An enhanced, drop-in replacement for MySQL.'
-  issue_tracker: 'https://github.com/telusdigital/ansible-mariadb/issues'
+  issue_tracker_url: 'https://github.com/telusdigital/ansible-mariadb/issues'
   license: MIT
   min_ansible_version: 1.9
   platforms:
